@@ -19,6 +19,24 @@
   <strong>Recipe image:</strong>
   <%= @recipe.recipe_image %>
 </p>
+<table class="table" >
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Quantity </th>
+      <th> UOM </th>
+    <tr>
+  </thead>
+  <tbody>
+    <% @recipe.ingredient_recipe_line_items.each do |ingredient| %>
+    <tr> 
+      <td> <%= ingredient.title %> </td>
+      <td> <%= ingredient.quantity %> </td>
+      <td> <%= ingredient.item_uom %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
